@@ -1,0 +1,101 @@
+<html>
+    <body>
+        <link rel="stylesheet" href="Iching.css">
+        <div class="container">
+            <div id="toss" class="toss-center">
+                <p>Toss Coins</p>
+                <form name="frmcoins" action="#" method="post" target="_top">
+                <div class="coin-center">
+                    <img src="noside.gif" name="imgcoin1"  alt="coin">
+                    <img src="noside.gif" name="imgcoin2"  alt="coin">
+                    <img src="noside.gif" name="imgcoin3" alt="coin">
+                </div>
+                <div class="button-center">
+                    <button type="button" id="throwbtn" onclick = "toss()">Toss Coins</button>
+                    <button type="button" id="read" onclick = "reading()">Reading</button>
+                    <p></p>
+                    <p style="display:inline">time</p>
+                    <p id="num" style="display:inline"></p>
+                </div>
+                </form>
+            </div>
+    
+            <div id = "reading" class = "reading-center">
+                <div class="text-center">
+                    <p>Here is your reading</p>
+                    <iframe src = "reading2.txt" scrolling="no" frameborder="no" id="textfile" name = "textreading"
+                            height="300px" width="100%" title="Iframe Example" margin: auto></iframe>  
+                </div>
+            </div>
+        </div>
+
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <p id = "text"></p>
+            </div>
+        </div>
+
+        <script>
+            var count = 0;
+            var imagesArray = ["heads.png", "tails.png"];
+            var readingArray = ["reading1.txt", "reading2.txt", "reading3.txt", "reading4.txt", "reading5.txt", 
+                                "reading6.txt", "reading7.txt", "reading8.txt"];
+            document.getElementById('reading').style.display = 'none';
+            function toss() {
+                count = count + 1;
+                if(count >= 7){
+                    var span = document.getElementsByClassName("close")[0];
+                    var modal = document.getElementById('myModal');
+                    var text = document.getElementById('text');
+                    text.innerHTML = "You already tossed six times, please click reading button to the next"
+                    modal.style.display = 'block';
+                    span.onclick = function() {
+                        modal.style.display = "none";
+                    }
+                    window.onclick = function(event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    }
+                    button.disabled = true;
+                }   
+                num = document.getElementById('num');
+                num.innerHTML = count; // displays the numbers
+                var num1 = Math.floor(Math.random() * 2); // 0,1
+                var num2 = Math.floor(Math.random() * 2); // 0,1
+                var num3 = Math.floor(Math.random() * 2); // 0,1
+                document.imgcoin1.src = imagesArray[num1];
+                document.imgcoin2.src = imagesArray[num2];
+                document.imgcoin3.src = imagesArray[num3];
+            }
+            function print() {
+                var iframe = document.getElementById('textfile');
+                iframe.contentWindow.print();
+            }
+            function reading(){
+                //var randomSrc = Math.floor(Math.random() * readingArray.length); // 0,1
+                //document.getElementById('textfile').src= randomSrc;
+                if(count < 6){
+                    var span = document.getElementsByClassName("close")[0];
+                    var modal = document.getElementById('myModal');
+                    var text = document.getElementById('text');
+                    text.innerHTML = "You should toss six times first then click to read"
+                    modal.style.display = 'block';
+                    span.onclick = function() {
+                        modal.style.display = "none";
+                    }
+                    window.onclick = function(event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    }
+                    button.disabled = true;
+                }
+                
+                document.getElementById('reading').style.display = 'block';
+                document.getElementById('toss').style.display = 'none';
+            }
+        </script>
+    </body>
+</html>
