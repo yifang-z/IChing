@@ -3,6 +3,22 @@
     text-align: center;
     justify-content: center;
   }
+.title{
+    position:absolute;
+    top:1%;
+}
+.toss-intro{
+    position:absolute;
+    top:15%;
+    left:5%;
+    right:5%;
+}
+.reading-intro{
+    position:absolute;
+    top:15%;
+    left:5%;
+    right:5%;
+}
 .toss-center {
     position: absolute;
     left: 30%;

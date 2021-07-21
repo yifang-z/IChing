@@ -2,6 +2,19 @@
     <body>
         <link rel="stylesheet" href="Iching.css">
         <div class="container">
+            <p style="font-size:200%;"><strong>IChing</strong></p>
+            <div id = 'tossintro' class = 'toss-intro'>
+                <p>I Ching is an ancient Chinese book used for divination and foretelling the future. 
+                    The book uses a system of symbolic forms to describe how things change in the world, expressing the philosophy of classical Chinese culture.
+                If there is a question in your heart and mind, casting the coins can be a simple and effective way of divination. With your mind focused on the question, you can gather three coins of the same size into your hands, shake them until they are randomly arranged in your hand, then cast them gently upon the table in front of you. Notice how the coins have landed with either ‘heads’ or ‘tails’ facing up. You need to shake the coins six times to get the result. 
+                You can shake the coins automatically and get the corresponding result online through a specific computer program now. Using the simple tools of three coins, you can seek insight from the I Ching regarding whatever question is in your heart.
+                </p>
+            </div>
+            <div id = 'readingintro' class = 'reading-intro'>
+                <p>The result you have got contains words of insight pertaining to your question. Seek to apply the words you are given to the question you asked in a sincere and introspective way. Suspend preconceptions that may cloud your vision regarding the subject under consideration. Your intuition will confirm whether or not you have been enlightened. 
+                    Sometimes you may not understand the full meaning of your result related to the question you asked. Whether or not so, be sure that the question is truly the one most on your mind when you cast the coins. Remember that I Ching can answer the question that is really on your mind, guiding you to make changes.
+                </p>
+            </div>
             <div id="toss" class="toss-center">
                 <p>Toss Coins</p>
                 <form name="frmcoins" action="#" method="post" target="_top">
@@ -19,11 +32,11 @@
                 </div>
                 </form>
             </div>
-    
+            
             <div id = "reading" class = "reading-center">
                 <div class="text-center">
                     <p>Here is your reading</p>
-                    <iframe src = "reading2.txt" scrolling="no" frameborder="no" id="textfile" name = "textreading"
+                    <iframe  src = "reading.txt " scrolling="no" frameborder="no" id="textfile" name = "textreading"
                             height="300px" width="100%" title="Iframe Example" margin: auto></iframe>  
                 </div>
             </div>
@@ -42,6 +55,7 @@
             var readingArray = ["reading1.txt", "reading2.txt", "reading3.txt", "reading4.txt", "reading5.txt", 
                                 "reading6.txt", "reading7.txt", "reading8.txt"];
             document.getElementById('reading').style.display = 'none';
+            document.getElementById('readingintro').style.display = 'none';
             function toss() {
                 count = count + 1;
                 if(count >= 7){
@@ -74,8 +88,10 @@
                 iframe.contentWindow.print();
             }
             function reading(){
-                //var randomSrc = Math.floor(Math.random() * readingArray.length); // 0,1
-                //document.getElementById('textfile').src= randomSrc;
+                var randomSrc = Math.floor(Math.random() * 8); // 0,1
+                document.getElementById('textfile').src= readingArray[randomSrc];
+                document.getElementById('textfile').contentWindow.print();
+
                 if(count < 6){
                     var span = document.getElementsByClassName("close")[0];
                     var modal = document.getElementById('myModal');
@@ -95,6 +111,8 @@
                 
                 document.getElementById('reading').style.display = 'block';
                 document.getElementById('toss').style.display = 'none';
+                document.getElementById('readingintro').style.display = 'block';
+                document.getElementById('tossintro').style.display = 'none';
             }
         </script>
     </body>
