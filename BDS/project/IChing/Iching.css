@@ -2,55 +2,45 @@
     display: flex;
     text-align: center;
     justify-content: center;
+    
   }
 .title{
     position:absolute;
     top:1%;
 }
 .toss-intro{
-    position:absolute;
-    top:15%;
+    float:top;
+    top:10%;
     left:5%;
     right:5%;
 }
 .reading-intro{
-    position:absolute;
-    top:15%;
+    float:top;
+    top:10%;
     left:5%;
     right:5%;
 }
 .toss-center {
-    position: absolute;
-    left: 30%;
-    top: 40%;
-    height: 330px;
-    width: 500px;
+    float:top;
+    left: 40%;
+    height: auto;
+    width: auto;
     border: solid 0.3em;
-    margin: 0.1em;
-    padding: 0.1em; 
-} 
+    
+}
 .reading-center {
-    display: none; 
-    position: absolute;
-    left: 30%;
-    top: 40%;
-    height: 330px;
-    width: 500px
-} 
-.text-center {
-    position: absolute;
-    left: -10%;
-    right: 0%;
-    height: 330px;
-    width: 700px;
+    float:top;
+    width: auto;
+    height: auto; 
     border: solid 0.3em;
     margin: 0.1em;
     padding: 0.1em; 
-} 
+}
+
 .coin-center img{
     margin:20px;
-    height:100px;
-    width: 100px;
+    height:10%;
+    width: 10%;
 }
 .button-center button{
     margin:20px;
@@ -70,7 +60,7 @@
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
-  
+
   /* Modal Content */
 .modal-content {
     background-color: #fefefe;
@@ -85,7 +75,7 @@
     font-size: 28px;
     font-weight: bold;
 }
-  
+
 .close:hover,
 .close:focus {
     color: #000;
